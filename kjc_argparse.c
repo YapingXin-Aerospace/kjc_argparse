@@ -3,6 +3,7 @@
 //
 //  Created by Kevin Colley on 2/26/19.
 //  Copyright © 2019 Kevin Colley. All rights reserved.
+// 
 //
 
 #include "kjc_argparse.h"
@@ -86,6 +87,9 @@ static inline bool _argparse_short_option_expects_value(struct _argparse* argpar
 	return short_name != '\0' && !!(argparse_context->short_value_bitmap[(unsigned char)short_name >> 3] & (1 << (short_name & 7)));
 }
 
+#ifdef _MSC_VER
+#pragma warning(disable: 4996)
+#endif
 int _argparse_parse(struct _argparse* argparse_context, int* argidx, int state) {
 	int ret = ARG_VALUE_OTHER;
 	struct _arginfo* arginfo = NULL;
