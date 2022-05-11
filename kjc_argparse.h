@@ -3,6 +3,7 @@
 //
 //  Created by Kevin Colley on 4/30/17.
 //  Copyright © 2017 Kevin Colley. All rights reserved.
+// 
 //
 
 #ifndef KJC_ARGPARSE_H
@@ -41,7 +42,7 @@
 /* Setup _argparse_once to allow non-looping for loops (for declaring scope-local variables) */ \
 for(int _argparse_once = 1; _argparse_once; _argparse_once = 0) \
 	/* Setup argparse info structure with argc and argv */ \
-	for(struct _argparse _argparse_context = {}; _argparse_once; _argparse_once = 0) \
+	for(struct _argparse _argparse_context = { 0 }; _argparse_once; _argparse_once = 0) \
 		/* Actual argument parsing loop, first iteration is counting phase, then initialization phase, then */ \
 		/* after that each iteration is for parsing argv[_argidx]. */ \
 		for( \
